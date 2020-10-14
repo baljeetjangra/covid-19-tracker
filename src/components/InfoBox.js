@@ -4,9 +4,12 @@ import { Card, CardContent, Typography } from "@material-ui/core";
 
 const InfoBox = ({ title, cases, total }) => {
   return (
-    <Card className="infobox">
+    <Card
+      style={{ backgroundColor: "#231C4F", color: "#fff" }}
+      className="infobox"
+    >
       <CardContent>
-        <Typography className="infobox__title" color="textSecondary">
+        <Typography className="infobox__title" color="white">
           {title}
         </Typography>
         <h2 className="infobox__cases">{cases}</h2>

@@ -27,10 +27,7 @@ body {
   align-items: center;
   margin-bottom: 20px;
 }
-.app__headerContent {
-  display: flex;
-  align-items: center;
-}
+
 .app__dropdown {
   color: white;
 }

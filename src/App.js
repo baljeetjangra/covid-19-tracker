@@ -14,6 +14,8 @@ import Map from "./components/Map";
 import Table from "./components/Table";
 import { sortData } from "./util";
 import LineGraph from "./components/LineGraph";
+import PublicIcon from "@material-ui/icons/Public";
+import "leaflet/dist/leaflet.css";
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -68,10 +70,9 @@ function App() {
     <div className="app">
       <div className="app__left">
         <div className="app__header">
-          <div className="app__headerContent">
-            <img className="app__logo" src={corona} alt="" />
-            <h1>Covid-19 Tracker</h1>
-          </div>
+          <h1>Covid-19 Tracker</h1>
+          <img className="app__logo" src={corona} alt="" />
+
           <FormControl className="app__dropdown">
             <Select
               value={country}
@@ -79,7 +80,10 @@ function App() {
               variant="outlined"
               style={{ background: "#fff" }}
             >
-              <MenuItem value="worldwide">Worldwide</MenuItem>
+              <MenuItem value="worldwide">
+                <PublicIcon />
+                Worldwide
+              </MenuItem>
               {countries.map((country) => (
                 <MenuItem
                   className="app__dropdownCountries"
@@ -115,7 +119,10 @@ function App() {
         </div>
         <Map />
       </div>
-      <Card className="app__right">
+      <Card
+        style={{ backgroundColor: "#231C4F", color: "#fff" }}
+        className="app__right"
+      >
         <CardContent>
           <h3>Live cases by country</h3>
           <Table counteries={tableData} />
