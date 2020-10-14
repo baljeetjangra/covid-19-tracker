@@ -13,6 +13,7 @@ import blueGrey from "@material-ui/core/colors/blueGrey";
 import Map from "./components/Map";
 import Table from "./components/Table";
 import { sortData } from "./util";
+import LineGraph from "./components/LineGraph";
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -118,6 +119,8 @@ function App() {
         <CardContent>
           <h3>Live cases by country</h3>
           <Table counteries={tableData} />
+          <h3>Worldwide new cases</h3>
+          <LineGraph />
         </CardContent>
       </Card>
     </div>

@@ -2,7 +2,7 @@
   margin-top: 20px;
   overflow: scroll;
   height: 400px;
-  color: #6a5d5d;
+  color: #fff;
 }
 .table tr {
   display: flex;
@@ -12,7 +12,10 @@
   padding: 0.5rem;
 }
 .table tr:nth-of-type(odd) {
-  background-color: #f3f2f8;
+  background-color: #231c4f;
+}
+.table tr:nth-of-type(even) {
+  background-color: #140d37;
 }
 .table::-webkit-scrollbar {
   display: none;
