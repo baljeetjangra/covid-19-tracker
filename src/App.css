@@ -1,5 +1,24 @@
 * {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #140d37;
+  color: white;
+}
+.app {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+}
+.app__left {
+  flex: 0.9;
+}
+.app__logo {
+  object-fit: contain;
+  height: 35px;
+  margin-right: 10px;
 }
 
 .app__header {
@@ -8,14 +27,33 @@
   align-items: center;
   margin-bottom: 20px;
 }
+.app__headerContent {
+  display: flex;
+  align-items: center;
+}
+.app__dropdown {
+  color: white;
+}
+.app__dropdownCountries {
+  color: white;
+}
 .app__dropdownFlag {
   object-fit: contain;
   height: 20px;
   width: 20px;
   margin-right: 5px;
 }
-.app__dropdownCountries {
+.app__stats {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.app__right {
+  /* flex: 0.4; */
+}
+
+@media (max-width: 990px) {
+  .app {
+    flex-direction: column;
+  }
 }
