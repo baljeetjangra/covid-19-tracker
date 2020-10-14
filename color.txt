@@ -1,0 +1,11 @@
+dark-blue = #140D37 rgb(20,13,55)
+
+blue = #231C4F rgb(35,28,79)
+
+pink-lite =#FBE1EA  rgb(251,225,234)
+
+sky-blue-lite = #D3F6FC rgb(211,246,252)
+
+skin = #FDE8B1 rgb(253,232,177)
+
+voilet = #7F6CFC rgb(127,108,252)
