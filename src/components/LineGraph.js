@@ -51,21 +51,20 @@ const options = {
   },
 };
 
-const LineGraph = ({ casesTypes = "cases" }) => {
+const LineGraph = ({ casesType, ...props }) => {
   const [data, setData] = useState({});
-
-  const buildChartData = (data, casesTypes = "cases") => {
+  const buildChartData = (data, casesType) => {
     const chartData = [];
     let lastDataPoint;
     for (let date in data.cases) {
       if (lastDataPoint) {
         const newDataPoint = {
           x: date,
-          y: data[casesTypes][date] - lastDataPoint,
+          y: data[casesType][date] - lastDataPoint,
         };
         chartData.push(newDataPoint);
       }
-      lastDataPoint = data[casesTypes][date];
+      lastDataPoint = data[casesType][date];
     }
     return chartData;
   };
@@ -75,13 +74,14 @@ const LineGraph = ({ casesTypes = "cases" }) => {
       await fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
         .then((response) => response.json())
         .then((data) => {
-          setData(buildChartData(data, "cases"));
+          setData(buildChartData(data, casesType));
         });
     };
     fetchData();
-  }, [casesTypes]);
+  }, [casesType]);
   return (
     <div
+      className={props.className}
       style={{ backgroundColor: "#fff", borderRadius: "10px", padding: "10px" }}
     >
       {data?.length > 0 && (
