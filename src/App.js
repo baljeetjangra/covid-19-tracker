@@ -9,7 +9,6 @@ import {
 } from "@material-ui/core";
 import corona from "./assets/logo/corona.png";
 import InfoBox from "./components/InfoBox";
-import blueGrey from "@material-ui/core/colors/blueGrey";
 import Map from "./components/Map";
 import Table from "./components/Table";
 import { sortData } from "./util";
@@ -22,6 +21,8 @@ function App() {
   const [country, setCountry] = useState("worldwide");
   const [countryInfo, setCountryInfo] = useState({});
   const [tableData, setTableData] = useState([]);
+  const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
+  const [mapZoom, setMapZoom] = useState(3);
   // https://disease.sh/v3/covid-19/countries
 
   useEffect(() => {
@@ -63,7 +64,13 @@ function App() {
 
     await fetch(url)
       .then((response) => response.json())
-      .then((data) => setCountryInfo(data));
+      .then(
+        (data) => (
+          setCountryInfo(data),
+          setMapCenter([data.countryInfo.lat, data.countryInfo.long]),
+          setMapZoom(4)
+        )
+      );
   };
 
   return (
@@ -117,7 +124,7 @@ function App() {
             total={countryInfo.deaths}
           />
         </div>
-        <Map />
+        <Map center={mapCenter} zoom={mapZoom} />
       </div>
       <Card
         style={{ backgroundColor: "#231C4F", color: "#fff" }}
